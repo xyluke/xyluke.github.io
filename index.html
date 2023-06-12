@@ -111,5 +111,14 @@ outer: for (var i = 0; i < 5; ++i) {
 <h2>伪类</h2>
 <input type="text" class="input-focus" placeholder="请输入"/> 聚焦变背景色
 <div class="div-hover">移动变背景色</div>
+    
+    <button id="jump">跳转</button>
+
+    <script>
+    let div = document.querySelector("#jump");
+    div.addEventListener('click', () => {
+        window.location.href = "./message.html"
+    })
+    </script>
 </body>
 </html>
