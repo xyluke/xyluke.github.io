@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn6.kgcaptcha.com/captcha.js?appid=mWing3L8"></script>
+    <title>Document</title>
+    <style>
+        .input-focus:focus {
+            background-color: red;
+        }
+
+        .div-hover:hover {
+            background-color: pink;
+        }
+
+        .div-before::before {
+            content: "前面的数据";
+            color: blue;
+        }
+        .div-after::after {
+            content: "后面的数据";
+            color: red;
+        }
+
+        .required::before {
+            content: "*";
+            color: red;
+            display: inline-block;
+        }
+
+        p::first-letter {
+            color: #ff0000;
+            font-size: 200%;
+        }
+        .pre-line::first-line {
+            color: #ff0000;
+            font-size: 200%;
+            font-weight: 700;
+        }
+
+        .pre-selection::selection {
+            background: yellow;
+            cursor: pointer;
+            color: pink;
+            outline: 1px solid red;
+        }
+
+        
+    </style>
+</head>
+<body>
+   
+<script>
+kg.captcha({
+    // 绑定元素，验证框显示区域
+    bind: "#captchaBox",
+    // 验证成功事务处理
+    success: function(e) {
+        console.log("验证成功", e);
+        console.log(e);
+    },
+    // 验证失败事务处理
+    failure: function(e) {
+        console.log("验证失败---------")
+        console.log(e);
+    },
+    // 点击刷新按钮时触发
+    refresh: function(e) {
+        console.log(e);
+    }
+});
+
+outer: for (var i = 0; i < 5; ++i) {
+  for (var j = 0; j < 5; ++j) {
+    if (i * j >= 6) {
+      console.log("Breaking");
+      break outer;
+    }
+    console.log(i, j);
+  }
+}
+</script>
+<!-- <div id="captchaBox">载入中 ...</div> -->
+<h2>伪元素</h2>
+<div class="div-before">--前面插入元素</div>
+<div class="div-after">后面插入元素--</div>
+<div>
+    <p>Abanden</p>
+    <p>First</p>
+    <p>Second</p>
+    <p>Third</p>
+</div>
+
+<div>
+    <pre class="pre-line">这是第一行
+        这是第二行
+        这是第三行
+    </pre>
+</div>
+
+<div>
+    <pre class="pre-selection">选择文字，他会变得不一样哦！！！！！</pre>
+</div>
+<h2>伪元素-例子</h2>
+<div class="required">当前日期: <input type="text" required placeholder="输入"/></div>
+<br/>
+<br/>
+<hr/>
+<h2>伪类</h2>
+<input type="text" class="input-focus" placeholder="请输入"/> 聚焦变背景色
+<div class="div-hover">移动变背景色</div>
+</body>
+</html>
